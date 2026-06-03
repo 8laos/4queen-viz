@@ -7,7 +7,7 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  background: #0d0d1a;
+  background: #1a1908;
   color: #e2e2e8;
   font-family: 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;
   min-height: 100vh;
@@ -17,7 +17,7 @@ body {
   padding: 24px 16px;
   gap: 16px;
 }
-h1 { font-size: 1.2rem; color: #9db5f5; letter-spacing: .04em; }
+h1 { font-size: 1.2rem; color: #c8c46a; letter-spacing: .04em; }
 .subtitle { font-size: .78rem; color: #555; }
 .main {
   display: flex;
@@ -29,11 +29,11 @@ h1 { font-size: 1.2rem; color: #9db5f5; letter-spacing: .04em; }
 .left  { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
 .right { flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 canvas { border-radius: 10px; display: block; }
-#chess { border: 2px solid #2a2a50; }
-#tree  { border: 2px solid #2a2a50; background: #080818; }
+#chess { border: 2px solid #3a3818; }
+#tree  { border: 2px solid #3a3818; background: #0e0d04; }
 .panel {
-  background: #13132a;
-  border: 1px solid #2a2a50;
+  background: #201e0a;
+  border: 1px solid #3a3818;
   border-radius: 10px;
   padding: 14px;
 }
@@ -55,13 +55,13 @@ button {
 }
 #startBtn { background: #5b52e8; color: #fff; }
 #startBtn:hover { background: #6c63ff; }
-#startBtn:disabled { background: #2a2a50; color: #555; cursor: default; }
-#resetBtn { background: #1e1e38; color: #aaa; }
-#resetBtn:hover { background: #262645; }
+#startBtn:disabled { background: #3a3818; color: #555; cursor: default; }
+#resetBtn { background: #252308; color: #aaa; }
+#resetBtn:hover { background: #302e12; }
 .sbox {
   text-align: center; font-size: .84rem;
   padding: 9px 14px; border-radius: 8px;
-  background: #13132a; border: 1px solid #2a2a50;
+  background: #201e0a; border: 1px solid #3a3818;
   color: #888; min-height: 38px;
   display: flex; align-items: center; justify-content: center;
 }
@@ -267,7 +267,7 @@ function drawTree() {
     if (!revealed.has(e.from) || !revealed.has(e.to)) continue;
     const a = nodeMap[e.from], b = nodeMap[e.to];
     const hot = (e.to === activeId);
-    ctx.strokeStyle = hot ? '#f5c518' : '#252545';
+    ctx.strokeStyle = hot ? '#f5c518' : '#2e2c10';
     ctx.lineWidth   = hot ? 2.5 : 1.2;
     ctx.beginPath();
     ctx.moveTo(a.x, a.y);
