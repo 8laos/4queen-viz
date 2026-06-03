@@ -104,7 +104,7 @@ button {
       <span>🌳 상태 공간 트리</span>
       <span id="vcnt">방문: 0</span>
     </div>
-    <canvas id="tree" width="720" height="500"></canvas>
+    <canvas id="tree" width="720" height="540"></canvas>
     <div class="legend">
       <span class="litem"><span class="ldot" style="background:#f5c518"></span>탐색 시도</span>
       <span class="litem"><span class="ldot" style="background:#4ade80"></span>배치(안전)</span>
@@ -120,8 +120,8 @@ button {
 
 const N    = 4;
 const CELL = 68;
-const TW   = 720, TH = 500;
-const NR   = 13; // 노드 반지름
+const TW   = 720, TH = 540;
+const NR   = 20; // 노드 반지름
 
 const COL = {
   trying:    '#f5c518',
@@ -298,12 +298,13 @@ function drawTree() {
     ctx.lineWidth   = hot ? 2 : 1;
     ctx.stroke();
 
-    // 노드 레이블 (열 번호)
-    ctx.fillStyle    = '#000000bb';
-    ctx.font         = `bold ${n.row >= 0 ? 10 : 8}px Arial`;
+    // 노드 레이블 (R행C열 형식)
+    ctx.fillStyle    = '#ffffffdd';
+    ctx.font         = `bold ${n.row >= 0 ? 9 : 10}px Arial`;
     ctx.textAlign    = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText(n.row >= 0 ? String(n.col) : '▶', n.x, n.y);
+    const label = n.row >= 0 ? `R${n.row + 1}C${n.col + 1}` : '시작';
+    ctx.fillText(label, n.x, n.y);
   }
 }
 
